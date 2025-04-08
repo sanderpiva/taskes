@@ -93,6 +93,30 @@
   background-color: var(--green);
 }
 
+table {
+  width: 100%; /* Garante que a tabela ocupe toda a largura do espaço disponível */
+  border-collapse: collapse; /* Remove o espaçamento padrão entre as células da tabela */
+}
+
+th, td {
+  border: 1px solid #ddd; /* Adiciona bordas cinza claras em todas as células */
+  padding: 8px; /* Adiciona um espaço interno nas células para melhor visualização */
+  text-align: left; /* Alinha o texto à esquerda dentro das células */
+}
+
+th {
+  background-color: #f2f2f2; /* Cor de fundo cinza clara para a linha de cabeçalho */
+  font-weight: bold; /* Deixa o texto do cabeçalho em negrito */
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd; /* Adiciona uma linha cinza clara abaixo de cada linha de dados */
+}
+
+tbody tr:last-child {
+  border-bottom: none; /* Remove a borda da última linha para não ficar dupla */
+}
+
 .footer {
   margin-top: 5rem;
   padding: 2rem;

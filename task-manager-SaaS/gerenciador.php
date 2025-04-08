@@ -65,52 +65,67 @@
                                 <th>Título</th>
                                 <th>Descrição</th>
                                 <th>Status</th>
-                            
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            include 'crud/conexao.php';
+                                include 'crud/conexao.php';
 
-                            $sql="select * from tabelatasks";
-                            $res=mysqli_query($conn, $sql);
-                            $lin=mysqli_affected_rows($conn);
+                                $sql="select * from tabelatasks";
+                                $res=mysqli_query($conn, $sql);
+                                $lin=mysqli_affected_rows($conn);
 
-                            echo "Registros identificados: $lin";
-                            echo "<br><br>";
+                                echo "Registros identificados: $lin";
+                                echo "<br><br>";
 
-                            while($reg=mysqli_fetch_row($res)){
+                                while($reg=mysqli_fetch_row($res)){
 
-                                $codigo=$reg[0];
-                                $titulo=$reg[1];
-                                $descricao=$reg[2];
-                                $realizada=$reg[3];
+                                    $codigo=$reg[0];
+                                    $titulo=$reg[1];
+                                    $descricao=$reg[2];
+                                    $realizada=$reg[3];
 
-                                if($realizada==1){
-                                    $realizada="Concluída";
-                                }else{
-                                    $realizada="Pendente";
+                                    if($realizada==1){
+                                        $realizada="Concluída";
+                                    }else{
+                                        $realizada="Pendente";
+                                    }
+
+                                    echo "<tr>";
+                                    echo "<td>$codigo</td><td>$titulo</td>";
+                                    echo "<td>$descricao</td><td>$realizada</td>";
+                                    echo "<td><button onclick='atualizarRegistro($codigo)'>Atualizar</button></td>";
+                                    echo "<td><button onclick='enviarParaApagar($codigo)'>Excluir</button></td>";
+                                    echo "</tr>";
                                 }
 
-                                echo "<tr>";
-                                echo "<td>$codigo<td/><td>$titulo<td/><td>$descricao<td/><td>$realizada<td/>";
-                                echo "<tr/>";
-
-
-                            }
-
-                            mysqli_close($conn);
-
+                                mysqli_close($conn);
                             ?>
                         </tbody>
                     </table>
+
+                    <script>
+                        function atualizarRegistro(codigo) {
+                            alert("Atualizar registro do codigo: " + codigo);
+                            // Aqui pode redirecionar para uma pagina de atualizacao ou abrir um modal.
+                        }
+
+                        function enviarParaApagar(codigo) {
+                            const confirmar = confirm("Tem certeza que deseja excluir o registro de codigo: " + codigo + "?");
+                            if (confirmar) {
+                                // Redireciona para o script de exclusão via GET, passando o código como parâmetro na URL
+                                window.location.href = 'crud/apagar.php?codigo=' + codigo;
+                            }
+                        }
+                    </script>
+
                 </header>
             </div>
         </section>
     </main>
 
     <a href="inserir.html">Cadastrar</a><br><br>
-    <a href="apagar.html">Apagar</a>
 
     <footer class="footer">
         <p>© 2025 JSS Developments. Todos os direitos reservados.</p>

@@ -1,28 +1,23 @@
-<html>
-	<body>
-	<?php
+<?php
+    include "conexao.php";
 
-		include "conexao.php";
-		//precisa pegar do formulario o valor do campo cod
-		$cod = $_POST['codigo'];
-		
-		$sql="delete from tabelatasks where codigo = $cod";
-		$res=mysqli_query($conn, $sql);
-		$lin=mysqli_affected_rows($conn);
-		if($lin>0){
-			
-			echo "apagado $lin";
-		}
-		else{
-			
-			echo "nao apagado";
-			
-		}
+    if (isset($_GET['codigo'])) {
+        $cod = $_GET['codigo'];
 
-		mysqli_close($conn);
+        $sql = "DELETE FROM tabelatasks WHERE codigo = $cod";
+        $res = mysqli_query($conn, $sql);
+        $lin = mysqli_affected_rows($conn);
 
+        if ($lin > 0) {
+            echo "<p style='color: green;'>Registro com codigo <strong>{$cod}</strong> foi apagado com sucesso!</p>";
+        } else {
+            echo "<p style='color: red;'>Erro: Nenhum registro encontrado com o codigo <strong>{$cod}</strong>.</p>";
+        }
+    } else {
+        echo "<p style='color: orange;'>Atenção: Codigo da tarefa nao foi recebido.</p>";
+    }
 
-	?><br><br>	
-	<a href="../gerenciador.php">Voltar</a>
-	</body>
-</html>
+    mysqli_close($conn);
+?>
+<br><br>
+<a href="../gerenciador.php">Voltar para a lista de tarefas</a>
