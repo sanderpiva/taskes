@@ -95,8 +95,8 @@
                                     echo "<tr>";
                                     echo "<td>$codigo</td><td>$titulo</td>";
                                     echo "<td>$descricao</td><td>$realizada</td>";
-                                    echo "<td><button onclick='atualizarRegistro($codigo)'>Atualizar</button></td>";
-                                    echo "<td><button onclick='enviarParaApagar($codigo)'>Excluir</button></td>";
+                                    echo "<td><button onclick='atualizarRegistro($codigo)'>Atualizar</button>
+                                    <button onclick='enviarParaApagar($codigo)'>Excluir</button></td>";
                                     echo "</tr>";
                                 }
 
