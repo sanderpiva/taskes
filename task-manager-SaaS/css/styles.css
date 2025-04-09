@@ -48,7 +48,7 @@ body {
   margin: 3rem 0;
 
   & .section__header__title {
-    font-size: 28px;
+    font-size: 36px;
 
     & #username {
       color: var(--orange);
@@ -105,6 +105,32 @@ body {
   background-color: var(--green);
 }
 
+.task-list-container {
+  & .task-list-container__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    position: relative;
+
+    & .task-list-container__header__add-button {
+      width: fit-content;
+      position: absolute;
+      justify-self: end;
+      border: 1px solid var(--black);
+      background-color: var(--green);
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        cursor: pointer;
+        filter: brightness(1.2);
+      }
+    }
+  }
+}
+
 @media (min-width: 992px) {
   .task-container {
     max-width: 1200px;
@@ -148,6 +174,29 @@ tbody tr:last-child {
   border-bottom: none; /* Remove a borda da última linha para não ficar dupla */
 }
 
+#buttons-wrapper {
+  display: flex;
+  justify-content: space-around;
+  & button {
+    border: none;
+    border: 1px solid var(--black);
+    padding: 5px;
+    background-color: transparent;
+
+    & i {
+      font-size: 16px;
+    }
+
+    &:nth-child(1) {
+      background-color: var(--cream);
+    }
+
+    &:nth-child(2) {
+      background-color: var(--red);
+    }
+  }
+}
+
 .footer {
   margin-top: 5rem;
   padding: 2rem;
@@ -155,4 +204,27 @@ tbody tr:last-child {
   text-align: center;
   font-size: 1rem;
   background-color: var(--black);
+}
+
+.mensagem-resultado {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.mensagem {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.mensagem.success {
+  background-color: #c7fca9;
+  color: #27580d;
+}
+
+.mensagem.error {
+  background-color: #f9c0c0;
+  color: #930000;
 }

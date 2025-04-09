@@ -1,5 +1,7 @@
 function atualizarRegistro(codigo) {
-  alert("Atualizar registro do codigo: " + codigo);
+  // alert("Atualizar registro do codigo: " + codigo);
+  window.location.href =
+    "../task-manager-SaaS/crud/atualizar.php?codigo=" + codigo;
 }
 
 function enviarParaApagar(codigo) {
@@ -9,4 +11,22 @@ function enviarParaApagar(codigo) {
   if (confirmar) {
     window.location.href = "crud/apagar.php?codigo=" + codigo;
   }
+}
+
+const mensagem = document.querySelector(".mensagem-resultado");
+if (mensagem) {
+  setTimeout(() => {
+    mensagem.style.opacity = "0";
+    mensagem.style.transition = "opacity 0.5s ease";
+    setTimeout(() => {
+      mensagem.remove();
+      // Limpa os parâmetros da URL após esconder a mensagem
+      const novaURL =
+        window.location.protocol +
+        "//" +
+        window.location.host +
+        window.location.pathname;
+      window.history.replaceState({}, document.title, novaURL);
+    }, 500);
+  }, 4000);
 }

@@ -1,31 +1,20 @@
-<html>
-	<body>
-		<?php
+<?php
 
-			include "conexao.php";
+include "conexao.php";
 
-			$titulo= $_POST['titulo'];
-			$descricao= $_POST['descricao'];
-			$status= $_POST['status'];
+$titulo = $_POST['title'];
+$descricao = $_POST['description'];
+$status = $_POST['status'];
 
-			$sql="Insert into tabelatasks VALUES('NULL', '$titulo','$descricao', $status)";
-			$res=mysqli_query($conn, $sql);
-			$lin=mysqli_affected_rows($conn);
-			if($lin>0){
-				
-				echo "inserido $lin";
-			}
-			else{
-				
-				echo "nao inserido";
-				
-			}
+$sql = "Insert into tabelatasks VALUES('NULL', '$titulo','$descricao', $status)";
+$res = mysqli_query($conn, $sql);
+$lin = mysqli_affected_rows($conn);
+if ($lin > 0) {
+	header("Location: ../gerenciador.php?msg=inserido");
+	exit();
+} else {
+	header("Location: ../gerenciador.php?msg=erro_inserir");
+	exit();
+}
 
-			mysqli_close($conn);
-		?><br><br>		
-		<a href="../gerenciador.php">Voltar</a>
-	</body>
-</html>
-
-
-
+?>

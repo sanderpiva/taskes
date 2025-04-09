@@ -51,5 +51,13 @@
         </div>
       </section>
     </main>
+    <script>
+      const form = document.querySelector(".login-container__form");
+      form.addEventListener("submit", function (e) {
+        const usernameInput = document.getElementById("username");
+        const username = usernameInput.value;
+        localStorage.setItem("username", username);
+      });
+    </script>
   </body>
 </html>

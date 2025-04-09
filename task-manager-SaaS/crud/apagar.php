@@ -1,23 +1,28 @@
 <?php
-    include "conexao.php";
+include "conexao.php";
 
-    if (isset($_GET['codigo'])) {
-        $cod = $_GET['codigo'];
+if (isset($_GET['codigo'])) {
+    $cod = $_GET['codigo'];
 
-        $sql = "DELETE FROM tabelatasks WHERE codigo = $cod";
-        $res = mysqli_query($conn, $sql);
-        $lin = mysqli_affected_rows($conn);
+    $tituloSql = "SELECT titulo FROM tabelatasks WHERE codigo = $cod";
+    $tituloRes = mysqli_query($conn, $tituloSql);
+    $tituloRow = mysqli_fetch_assoc($tituloRes);
+    $titulo = $tituloRow['titulo'];
 
-        if ($lin > 0) {
-            echo "<p style='color: green;'>Registro com codigo <strong>{$cod}</strong> foi apagado com sucesso!</p>";
-        } else {
-            echo "<p style='color: red;'>Erro: Nenhum registro encontrado com o codigo <strong>{$cod}</strong>.</p>";
-        }
+    $sql = "DELETE FROM tabelatasks WHERE codigo = $cod";
+    $res = mysqli_query($conn, $sql);
+    $lin = mysqli_affected_rows($conn);
+
+    if ($lin > 0) {
+        header("Location: ../gerenciador.php?msg=apagado");
+        exit();
     } else {
-        echo "<p style='color: orange;'>Atenção: Codigo da tarefa nao foi recebido.</p>";
+        header("Location: ../gerenciador.php?msg=erro_apagar");
+        exit();
     }
+} else {
+    header("Location: ../gerenciador.php?msg=erro_receber");
+    exit();
+}
 
-    mysqli_close($conn);
 ?>
-<br><br>
-<a href="../gerenciador.php">Voltar para a lista de tarefas</a>
