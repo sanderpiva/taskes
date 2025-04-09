@@ -1,43 +1,87 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <title>Cadastrar</title>
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <title>Cadastrar</title>
+  </head>
+  <body>
+    <main>
+      <section class="section-insert">
+        <div class="insert-container">
+          <form
+            class="insert-container__form"
+            action="inserir.html"
+            method="post"
+          >
+            <h1 class="inserir-container__form__title">Faça seu cadastro</h1>
 
-        <main class="main-inserir">
-            <div class="inserir-container"><br><br>
-                <form style="text-align: center;" class="inserir-form" action="crud/inserir.php" method="post">
-                    <h1 class="inserir-container__title">Faça seu cadastro</h1>
-                    <br><br>
-                
-                    <div class="inserir-form__group">
-                        <label for="">Titulo........:</label>
-                         <input type="text" name="titulo" id="titulo" placeholder="Digite seu titilo" required>
-                    </div><br><br>
-                    <div class="inserir-form__group">
-                        <label for="">Descricao</label>
-                        <input type="text" name="descricao" id="descricao" placeholder="Digite sua descricao" required>
-                    </div><br><br>
-                    <div class="inserir-form__group">
-                        <label for="">Tarefa realizada?</label><br>
-                        <select name="status" id="status" required>
-                            <option value = 1>Sim</option>
-                            <option value = 0>Nao</option>
-                        </select>
-                    </div><br><br>
-                    
-                    <button type="submit" class="inserir-form__button">Enviar</button>
-                    <br><br>
-                    <a href="gerenciador.php">Voltar</a>
-                </form>
+            <div class="insert-container__form__group">
+              <label class="insert-container__form__group__label" for="title"
+                >Titulo:</label
+              >
+              <input
+                class="insert-container__form__group__input"
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Digite sua tarefa"
+                required
+              />
             </div>
-            
-        </main>
-        <footer style="margin-top:250px"  class="footer">
-            <p>© 2025 JSS Developments. Todos os direitos reservados.</p>
-        </footer>
-    </body>
+
+            <div class="insert-container__form__group">
+              <label
+                class="insert-container__form__group__label"
+                for="description"
+                >Descricao</label
+              >
+              <input
+                class="insert-container__form__group__input"
+                type="text"
+                name="description"
+                id="description"
+                placeholder="Digite sua descrição"
+                required
+              />
+            </div>
+
+            <div class="insert-container__form__group">
+              <label class="insert-container__form__group__label" for="status"
+                >Tarefa realizada?</label
+              >
+              <select
+                class="insert-container__form__group__select"
+                name="status"
+                id="status"
+                required
+              >
+                <option
+                  class="insert-container__form__group__select__option"
+                  value="1"
+                >
+                  Sim
+                </option>
+                <option
+                  class="insert-container__form__group__select__option"
+                  value="0"
+                >
+                  Nao
+                </option>
+              </select>
+            </div>
+
+            <button type="submit" class="insert-container__form__button">
+              Enviar
+            </button>
+            <a
+              class="insert-container__form__back-button"
+              href="gerenciador.php"
+              >Voltar</a
+            >
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

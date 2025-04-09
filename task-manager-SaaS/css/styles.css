@@ -1,3 +1,8 @@
+@import url("./welcome.css");
+@import url("./login.css");
+@import url("./insert.css");
+@import url("./delete.css");
+
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +15,17 @@
   --black: #222;
   --gray: #6d6d6d;
   --gray-light: #a5a5a5;
+  --cream: #fceea1;
   --green: #c7fca9;
   --red: #eb5b5b;
   --orange: #b13c05;
   --blue-light: #81a9e6;
+  --blue: #1d3096;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .section {
@@ -93,12 +105,31 @@
   background-color: var(--green);
 }
 
+@media (min-width: 992px) {
+  .task-container {
+    max-width: 1200px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .task-list-container__task-list {
+    max-width: 992px;
+    margin: 0 auto;
+
+    & .task-list-container__task-list__item {
+      width: 100%;
+    }
+  }
+}
+
 table {
   width: 100%; /* Garante que a tabela ocupe toda a largura do espaço disponível */
   border-collapse: collapse; /* Remove o espaçamento padrão entre as células da tabela */
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ddd; /* Adiciona bordas cinza claras em todas as células */
   padding: 8px; /* Adiciona um espaço interno nas células para melhor visualização */
   text-align: left; /* Alinha o texto à esquerda dentro das células */

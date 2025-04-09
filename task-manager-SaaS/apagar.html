@@ -1,32 +1,47 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <title>Apagar</title>
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <title>Apagar</title>
+  </head>
+  <body>
+    <main>
+      <section id="section-delete">
+        <div class="delete-container">
+          <form
+            style="text-align: center"
+            class="delete-container__form"
+            action="crud/apagar.php"
+            method="post"
+          >
+            <h1 class="delete-container__form__title">Faça seu cadastro</h1>
 
-        <main class="main-apagar">
-            <div class="apagar-container"><br><br>
-                <form style="text-align: center;" class="apagar-form" action="crud/apagar.php" method="post">
-                    <h1 class="apagar-container__title">Faça seu cadastro</h1>
-                    <br><br>
-                
-                    <div class="apagar-form__group">
-                        <label for="">Codigo........:</label>
-                         <input type="number" name="codigo" id="codigo" placeholder="Digite seu codigo" required>
-                    </div><br><br>
-                    
-                    <button type="submit" class="apagar-form__button">Enviar</button>
-                    <br><br>
-                    <a href="gerenciador.php">Voltar</a>
-                </form>
+            <div class="delete-container__form__group">
+              <label for="codigo" class="delete-container__form__group__label"
+                >Código *</label
+              >
+              <input
+                class="delete-container__form__group__input"
+                type="number"
+                name="codigo"
+                id="codigo"
+                placeholder="Digite seu código"
+                required
+              />
             </div>
-            
-        </main>
-        <footer style="margin-top:250px"  class="footer">
-            <p>© 2025 JSS Developments. Todos os direitos reservados.</p>
-        </footer>
-    </body>
+
+            <button type="submit" class="delete-container__form__button">
+              Enviar
+            </button>
+            <a
+              href="gerenciador.php"
+              class="delete-container__form__back-button"
+              >Voltar</a
+            >
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
